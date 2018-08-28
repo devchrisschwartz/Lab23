@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lab23.Models;
 
 namespace Lab23.Controllers
 {
@@ -10,6 +11,10 @@ namespace Lab23.Controllers
     {
         public ActionResult Index()
         {
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+
+            ViewBag.Items = ORM.items.ToList();
+
             return View();
         }
 
@@ -23,6 +28,14 @@ namespace Lab23.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult SearchItems(string itemName)
+        {
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+
 
             return View();
         }
